@@ -1,0 +1,14 @@
+
+# Example kdb menu items definition
+entity.ejemplo_kdb.collection:
+  title: 'Example kdb list'
+  route_name: entity.ejemplo_kdb.collection
+  description: 'List Example kdb entities'
+  parent: system.admin_structure
+  weight: 100
+
+ejemplo_kdb.admin.structure.settings:
+  title: 'Example kdb settings'
+  description: 'Configure Example kdb entities'
+  route_name: ejemplo_kdb.settings
+  parent: system.admin_structure

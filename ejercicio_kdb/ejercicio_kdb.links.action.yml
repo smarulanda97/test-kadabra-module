@@ -1,0 +1,5 @@
+entity.ejemplo_kdb.add_form:
+  route_name: entity.ejemplo_kdb.add_form
+  title: 'Add Example kdb'
+  appears_on:
+    - entity.ejemplo_kdb.collection

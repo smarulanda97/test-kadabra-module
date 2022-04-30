@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Contains ejercicio_kdb.module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\ejercicio_kdb\Entity\ExampleKdb;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ejercicio_kdb_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ejercicio_kdb module.
+    case 'help.page.ejercicio_kdb':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Technical Test Kadabra') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function ejercicio_kdb_modules_installed($modules, $is_syncing) {
+  if (!in_array('ejercicio_kdb', $modules)) {
+    return;
+  }
+
+  try {
+
+    $exampleTag1 = Term::create([
+      'name' => 'Example Tag 1',
+      'vid' => 'tags'
+    ]);
+    $exampleTag1->save();
+
+    $exampleTag2 = Term::create([
+      'name' => 'Example Tag 2',
+      'vid' => 'tags'
+    ]);
+    $exampleTag2->save();
+
+
+    $exampleKDB = ExampleKdb::create([
+      'dato_1' => 2,
+      'dato_2' => 3,
+      'etiqueta' => $exampleTag1->id()
+    ]);
+    $exampleKDB->save();
+
+    $exampleKDB = ExampleKdb::create([
+      'dato_1' => 2,
+      'dato_2' => 3,
+      'etiqueta' => $exampleTag2->id()
+    ]);
+    $exampleKDB->save();
+
+    $exampleKDB = ExampleKdb::create([
+      'dato_1' => 5,
+      'dato_2' => 0,
+      'etiqueta' => $exampleTag2->id()
+    ]);
+    $exampleKDB->save();
+
+    $exampleKDB = ExampleKdb::create([
+      'dato_1' => 22,
+      'dato_2' => 6,
+      'etiqueta' => $exampleTag1->id()
+    ]);
+    $exampleKDB->save();
+
+    $exampleKDB = ExampleKdb::create([
+      'dato_1' => 3,
+      'dato_2' => 8,
+      'etiqueta' => $exampleTag2->id()
+    ]);
+    $exampleKDB->save();
+
+    $exampleKDB = ExampleKdb::create([
+      'dato_1' => 1,
+      'dato_2' => 1,
+      'etiqueta' => $exampleTag1->id()
+    ]);
+    $exampleKDB->save();
+
+  } catch (\Exception $exception) {
+    \Drupal::logger('ejercicio_kdb')->error($exception->getMessage());
+  }
+}

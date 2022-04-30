@@ -1,0 +1,21 @@
+# Example kdb routing definition
+ejemplo_kdb.settings_tab:
+  route_name: ejemplo_kdb.settings
+  title: 'Settings'
+  base_route: ejemplo_kdb.settings
+
+entity.ejemplo_kdb.canonical:
+  route_name: entity.ejemplo_kdb.canonical
+  base_route: entity.ejemplo_kdb.canonical
+  title: 'View'
+
+entity.ejemplo_kdb.edit_form:
+  route_name: entity.ejemplo_kdb.edit_form
+  base_route: entity.ejemplo_kdb.canonical
+  title: 'Edit'
+
+entity.ejemplo_kdb.delete_form:
+  route_name:  entity.ejemplo_kdb.delete_form
+  base_route:  entity.ejemplo_kdb.canonical
+  title: Delete
+  weight: 10

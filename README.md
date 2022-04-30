@@ -7,4 +7,5 @@ This repository contains the module "ejercicio_kdb". To install this one, please
   `cd test-kadabra-module`
 - Copy the folder called ejercicio_kdb into your drupal project
   `cp ejercicio_kdb /path-your-drupal-project/modules/custom`
-- Install the module in your drupal project and review the exercises.
+- Install the module in your drupal project and review the exercises. After installation the route and some content for the new entity will create automatically
+  `http://{projectdomain.com}/ejercicio/kdb`
